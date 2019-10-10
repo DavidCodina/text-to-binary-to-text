@@ -30,9 +30,10 @@ function handle_submit(e){
   //  console.log(e.target.elements.string.nodeName);
   //
   //////////////////////////////////////////////////////////////////////////////
-  const textarea_value   = e.target.elements.string.value.trim();
-  const radio_value      = e.target.elements.text_or_binary_radio.value.trim();
-
+  const textarea_value = e.target.elements.string.value.trim();
+  const radio_value    = e.target.elements.text_or_binary_radio.value.trim();
+  //A NodeList that can later be used to uncheck all radios.
+  const radios         = e.target.elements.text_or_binary_radio;
 
   if (textarea_value === '' || radio_value ===''){
     alert("Please fill out the form completely.");
@@ -45,8 +46,12 @@ function handle_submit(e){
   result_div.textContent = result;
 
 
-  //Clear the value
-  e.target.elements.string.value = '';
+  //Clear the value form fields
+  //e.target.elements.string.value        = '';
+  //radios.forEach(radio => radio.checked = false);
+
+  //It's easier just to reset the form.
+  e.target.reset();
 }
 
 
