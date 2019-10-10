@@ -44,7 +44,6 @@ main {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: violet;
   text-shadow: -2px 2px 4px rgba(0,0,0,0.15);
-
   position: relative;
   z-index: 2;
 }
@@ -58,7 +57,7 @@ main {
   background-color: snow;
   background-color: rgba(240,240,240,0.9);
   border: 2px solid #61DAFB;
-  border-radius: 1.5rem  !important;
+  border-radius: 25px !important;
 }
 
 .custom-inset {
@@ -79,7 +78,25 @@ main {
   left: -50px;
   transform: rotate(-20deg);
   width:150px;
+  cursor: pointer;
   filter: drop-shadow(-2px 2px 4px rgba(0,0,0,0.5));
+}
+
+#pow-img {
+  display: block;
+  position: absolute;
+  top: -60px;
+  left: 100px;
+  transform: scale(0);
+  width:150px;
+  filter: drop-shadow(-2px 2px 4px rgba(0,0,0,0.5));
+  /* A transition is added when window.onload:
+  pow_img.style.transition = "transform 0.15s linear";
+  If you add it here, it will occur when the page loads.*/
+}
+
+#pow-img.zoom-in {
+  transform: scale(1);
 }
 
 
@@ -192,7 +209,10 @@ main {
   border: 0.5px solid rgba(0,0,0,0.25);
   border-radius: 0px;
   box-shadow: -3px 3px 6px rgba(0,0,0,0.15);
-  transition: all 0.15s linear;
+  /* transition: all 0.15s linear; */
+  /* A transition is added when window.onload:
+  submit_button.style.transition = "all 0.15s linear";
+  If you add it here, it will occur when the page loads.*/
 }
 
 #text-binary-conversion-form input[type=submit]:hover{
@@ -238,7 +258,10 @@ main {
   border: 0.5px solid rgba(0,0,0,0.25);
   border-radius: 0px;
   box-shadow: -3px 3px 6px rgba(0,0,0,0.15);
-  transition: all 0.15s linear;
+  /* transition: all 0.15s linear; */
+  /* A transition is added when window.onload:
+  submit_button.style.transition = "all 0.15s linear";
+  If you add it here, it will occur when the page loads.*/
 }
 
 #clear-button:hover{

@@ -51,18 +51,67 @@ function handle_submit(e){
 
 
 /* =============================================================================
-                                 Event Listeners
+                              pow()
 ============================================================================= */
 
 
-//Submit event listener
-const text_binary_conversion_form = document.getElementById("text-binary-conversion-form");
-text_binary_conversion_form.addEventListener('submit', (e) => { handle_submit(e) });
+function pow(){
+	const pow_img = document.getElementById("pow-img");
+	pow_img.classList.add("zoom-in");
+	setTimeout(() => { pow_img.classList.remove("zoom-in"); }, 500);
+}
 
 
-//Clear event listener
-const clear_button = document.getElementById("clear-button");
-clear_button.addEventListener('click', () => {
-	const result_div       = document.getElementById("result-div");
-	result_div.textContent = '';
-});
+/* =============================================================================
+                               window.onload
+============================================================================= */
+
+
+window.onload = () => {
+	/* ==============================
+	    Add event listeners
+	============================== */
+	/* This was done here mainly just to encapsulate them. */
+
+
+	//Submit event listener
+	const text_binary_conversion_form = document.getElementById("text-binary-conversion-form");
+	text_binary_conversion_form.addEventListener('submit', (e) => { handle_submit(e) });
+
+
+	//Clear event listener
+	const clear_button = document.getElementById("clear-button");
+	clear_button.addEventListener('click', () => {
+		const result_div       = document.getElementById("result-div");
+		result_div.textContent = '';
+	});
+
+
+	//Function Machine event listener
+	const function_machine_img = document.getElementById("function-machine-img");
+	function_machine_img.addEventListener('click', pow);
+
+
+	/* ==============================
+	       Add in transitions
+	============================== */
+
+
+	setTimeout(() => {
+		const pow_img                  = document.getElementById("pow-img");
+		pow_img.style.transition       = "transform 0.15s linear";
+
+		const submit_button            = text_binary_conversion_form.querySelector("input[type=submit]");
+		submit_button.style.transition = "all 0.15s linear";
+
+		clear_button.style.transition  = "all 0.15s linear";
+	}, 500);
+
+
+	/* ==============================
+	   Fire a Pow! (because why not?)
+	============================== */
+
+
+	setTimeout(pow, 1500);
+}
